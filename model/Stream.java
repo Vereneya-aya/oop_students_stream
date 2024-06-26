@@ -20,7 +20,7 @@ public class Stream implements Iterable<StudentGroup> {
 
     @Override
     public String toString() {
-        return "Stream{\n" +
+        return "Stream{" +
                "studentGroups=" + studentGroups +
                '}';
     }

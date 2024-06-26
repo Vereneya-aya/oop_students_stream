@@ -43,7 +43,7 @@ public class StudentGroupService {
 
     public List<Student> getSortedByFIOStudentGroup(){
         List<Student> students = new ArrayList<>(studentGroup.getStudents());
-        students.sort(new StudentComparator());
+        students.sort(new UserComparator<>());
         return students;
     }
 }

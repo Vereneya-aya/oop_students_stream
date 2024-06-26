@@ -58,13 +58,37 @@ public static void main(String[] args) {
     //System.out.println(c.compare(sg1,  sg2));
 
 
-    StreamService streamService = new StreamService();
+    //StreamService streamService = new StreamService();
     stream1.sort(c);
     //System.out.println(stream1);
 
     //streamService.getSortedStreamGroups(stream1);
-    System.out.println(streamService.getSortedStreamGroups(stream1));
+    //System.out.println(streamService.getSortedStreamGroups(stream1.getStudentGroups()));
 
+    TeacherService ts = new TeacherService(new ArrayList<Teacher>());
+    ts.create("Yakov", "Nikolai", "Yakovich", LocalDate.of(1980, 5, 21));
+    ts.getTeacher("Yakov", "Nikolai").setTeacherId(1L);
+    ts.create("Ivan", "Ivanov", "Ivanovich", LocalDate.of(1990, 5, 22));
+    ts.getTeacher("Ivan", "Ivanov").setTeacherId(2L);
+    ts.create("Jakov", "Nikolai", "Yakovich", LocalDate.of(1981, 5, 21));
+    ts.getTeacher("Jakov", "Nikolai").setTeacherId(3L);
+
+    List<Teacher> teacherList = new ArrayList<Teacher>();
+    teacherList.add(ts.getTeacher("Yakov", "Nikolai"));
+    teacherList.add(ts.getTeacher("Ivan", "Ivanov"));
+    teacherList.add(ts.getTeacher("Jakov", "Nikolai"));
+
+    TeacherService ts1 = new TeacherService(teacherList);
+    System.out.println(ts1.getAll());
+    System.out.println("--------------------------------");
+
+
+   // System.out.println(teacherList);
+
+    //TeacherController tc = new TeacherController();
+   //System.out.println(tc.getAllTeachers());
+   ts1.editTeacher(ts1.getTeacher("Yakov", "Nikolai"), "Makov", "Mikalai", "Mikalaevich", LocalDate.of(1944,4,4));
+   System.out.println(ts1.getAll());
 
 
 
